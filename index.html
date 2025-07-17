@@ -25,10 +25,9 @@
             --brand-text-light: #4A5568;
         }
 
-        /* --- General & Helper Classes --- */
+        
         body {
             background-color: #FFFBF5;
-            /* Fallback */
             line-height: 1.6;
         }
 
@@ -64,8 +63,6 @@
         .whatsapp-link:hover::before {
             left: 100%;
         }
-
-        /* --- Gradient Backgrounds --- */
         .bg-gradient-body {
             background-image: linear-gradient(135deg, #FFFBF5 0%, #FEF2F2 100%);
         }
@@ -101,9 +98,6 @@
             background-image: linear-gradient(135deg, #FFEADD 0%, #FEE2E2 100%);
         }
 
-        /* --- Section-Specific Styles --- */
-
-        /* Hero Section */
         .hero-badge {
             background: linear-gradient(135deg, var(--brand-yellow) 0%, #FCD34D 100%);
             color: #9A3412;
@@ -148,7 +142,6 @@
             transform: translateY(-1px);
         }
 
-        /* Urgency Timer Section */
         .urgency-bar {
             background: linear-gradient(135deg, var(--brand-red) 0%, #DC2626 100%);
             position: relative;
@@ -199,7 +192,6 @@
             }
         }
 
-        /* Benefits & Audience Cards */
         .icon-circle {
             width: 4.5rem;
             height: 4.5rem;
@@ -286,7 +278,6 @@
             color: #7C3AED;
         }
 
-        /* Top Reasons Section */
         .reason-card {
             border-left: 4px solid var(--brand-orange);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -309,7 +300,6 @@
             box-shadow: 0 4px 15px rgba(237, 137, 54, 0.3);
         }
 
-        /* Registration Section */
         .registration-card {
             border: 2px solid #FDBA74;
             box-shadow: 0 15px 40px rgba(0, 0, 0, .1) !important;
@@ -356,7 +346,6 @@
             color: #B91C1C;
         }
 
-        /* Accordion (FAQ) */
         .accordion-item {
             border: 1px solid #E5E7EB;
             border-radius: 0.75rem !important;
@@ -384,7 +373,6 @@
             border-color: rgba(0, 0, 0, .125);
         }
 
-        /* Footer */
         footer {
             background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
         }
@@ -399,7 +387,6 @@
             color: #FDBA74;
         }
 
-        /* Enhanced CTA Buttons */
         .btn-cta-primary {
             background: linear-gradient(135deg, var(--brand-red) 0%, #DC2626 100%);
             color: white;
@@ -444,7 +431,6 @@
             box-shadow: 0 12px 35px rgba(72, 187, 120, 0.6);
         }
 
-        /* Social Proof Elements */
         .social-proof {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 0.75rem;
@@ -466,7 +452,6 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Responsive improvements */
         @media (max-width: 768px) {
 
             .btn-hero,
@@ -506,7 +491,6 @@
                         ₹15,000-₹50,000 monthly!</strong>
                 </p>
 
-                <!-- Enhanced CTA Section -->
                 <div class="d-grid gap-4 d-sm-flex justify-content-sm-center mb-5">
                     <a href="#" class="btn btn-hero fs-5 whatsapp-link">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -518,7 +502,6 @@
                     </a>
                 </div>
 
-                <!-- Social Proof Section -->
                 <div class="social-proof mb-4">
                     <div class="row align-items-center">
                         <div class="col-md-4">
@@ -542,7 +525,6 @@
                     </div>
                 </div>
 
-                <!-- Trust Badges -->
                 <div class="d-flex flex-wrap justify-content-center gap-3 gap-sm-4 mb-4">
                     <div class="trust-badge">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -1138,7 +1120,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // --- Countdown Timer ---
+
             const hoursEl = document.getElementById("hours");
             const minutesEl = document.getElementById("minutes");
             const secondsEl = document.getElementById("seconds");
@@ -1161,7 +1143,7 @@
                     timeLeft.seconds = 59;
                 } else {
                     clearInterval(timerInterval);
-                    // Optionally handle timer end state
+
                 }
 
                 hoursEl.textContent = `${String(timeLeft.hours).padStart(2, '0')}h`;
@@ -1169,8 +1151,6 @@
                 secondsEl.textContent = `${String(timeLeft.seconds).padStart(2, '0')}s`;
             }, 1000);
 
-            // --- WhatsApp Link Handler ---
-            // Replace with your actual WhatsApp number and pre-filled message
             const whatsappNumber = "916266938802";
             const whatsappMessage = "Hello! I'm interested in the WOW Partner Program";
             const encodedMessage = encodeURIComponent(whatsappMessage);
