@@ -11,22 +11,24 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" />
 
     <style>
         :root {
             --bs-body-font-family: 'Inter', sans-serif;
-            --ca-red: #D92525;
-            --ca-blue: #0A3D91;
-            --ca-blue-light: #F0F5FA;
-            --ca-text-dark: #1D232F;
-            --ca-text-light: #FFFFFF;
-            --ca-border: #DDE3EA;
+            --brand-red: #E53E3E;
+            --brand-red-dark: #C53030;
+            --brand-orange: #ED8936;
+            --brand-yellow: #FBBF24;
+            --brand-green: #48BB78;
+            --brand-text-dark: #2D3748;
+            --brand-text-light: #4A5568;
         }
 
+        
         body {
-            background-color: var(--ca-text-light);
-            color: var(--ca-text-dark);
+            background-color: #FFFBF5;
+        
             line-height: 1.6;
         }
 
@@ -42,46 +44,93 @@
             height: 2rem;
         }
 
+        .whatsapp-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .whatsapp-link:hover::before {
+            left: 100%;
+        }
+
+        /* --- Gradient Backgrounds --- */
+        .bg-gradient-body {
+            background-image: linear-gradient(135deg, #FFFBF5 0%, #FEF2F2 100%);
+        }
+
+        .bg-gradient-hero {
+            background-image: linear-gradient(135deg, #DC2626 0%, #F97316 50%, #F59E0B 100%);
+            position: relative;
+            color: white;
+        }
+
+        .bg-gradient-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .bg-gradient-hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bg-gradient-fomo {
+            background-image: linear-gradient(135deg, #DC2626 0%, #EA580C 100%);
+        }
+
+        .bg-gradient-audience {
+            background-image: linear-gradient(135deg, #FEF3C7 0%, #FFF5F0 100%);
+        }
+
+        .bg-gradient-registration {
+            background-image: linear-gradient(135deg, #FFEADD 0%, #FEE2E2 100%);
+        }
+
         /* --- Section-Specific Styles --- */
 
-        /* Header Navigation */
-        .navbar-brand {
-            color: var(--ca-blue) !important;
-        }
-        
-        .nav-link {
-            color: var(--ca-text-dark);
-        }
-        .nav-link.active,
-        .nav-link:hover {
-            color: var(--ca-red);
-        }
-
         /* Hero Section */
-        .hero-section {
-            background-color: var(--ca-blue);
-            color: var(--ca-text-light);
-        }
-
         .hero-badge {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--ca-text-light);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            font-weight: 600;
+            background: linear-gradient(135deg, var(--brand-yellow) 0%, #FCD34D 100%);
+            color: #9A3412;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: pulse 2s infinite;
         }
 
-        .hero-highlight {
-            color: #87CEFA; /* A light sky blue for highlight */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         .btn-hero {
-            background-color: var(--ca-red);
-            color: var(--ca-text-light);
+            background: linear-gradient(135deg, var(--brand-yellow) 0%, #FCD34D 100%);
+            color: #9A3412;
             font-weight: 800;
             border-radius: 50px;
             padding: 1rem 2rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(217, 37, 37, 0.3);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
             border: none;
             font-size: 1.1rem;
             text-transform: uppercase;
@@ -89,25 +138,65 @@
         }
 
         .btn-hero:hover {
-            background-color: #B21E1E; /* Darker Red */
-            color: var(--ca-text-light);
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            color: #9A3412;
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(217, 37, 37, 0.5);
+            box-shadow: 0 12px 35px rgba(251, 191, 36, 0.6);
+        }
+
+        .btn-hero:active {
+            transform: translateY(-1px);
         }
 
         /* Urgency Timer Section */
         .urgency-bar {
-            background-color: var(--ca-red);
+            background: linear-gradient(135deg, var(--brand-red) 0%, #DC2626 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .urgency-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
 
         .timer-box {
-            background-color: var(--ca-text-light);
-            color: var(--ca-red);
+            background: linear-gradient(135deg, white 0%, #F8FAFC 100%);
+            color: var(--brand-red);
             font-weight: 800;
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(220, 38, 38, 0.2);
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-2px);
+            }
         }
 
         /* Benefits & Audience Cards */
@@ -120,41 +209,93 @@
             justify-content: center;
             margin: 0 auto 1.5rem auto;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            background-color: var(--ca-blue-light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
-        .icon-circle svg {
-            color: var(--ca-blue);
+
+        .icon-circle:hover {
+            transform: scale(1.1);
         }
-        
+
         .benefit-card {
-            border: 1px solid var(--ca-border);
+            border: 2px solid #FEEBC8;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 1rem;
             overflow: hidden;
+            position: relative;
         }
 
         .benefit-card:hover {
-            border-color: var(--ca-blue);
+            border-color: var(--brand-orange);
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
-        
-        .bg-audience {
-            background-color: var(--ca-blue-light);
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-orange), var(--brand-yellow));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .icon-circle-benefit {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+        }
+
+        .icon-circle-benefit svg {
+            color: var(--brand-orange);
+        }
+
+        .icon-circle-homemakers {
+            background: linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%);
+        }
+
+        .icon-circle-homemakers svg {
+            color: #E11D48;
+        }
+
+        .icon-circle-students {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+        }
+
+        .icon-circle-students svg {
+            color: #2563EB;
+        }
+
+        .icon-circle-jobseekers {
+            background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+        }
+
+        .icon-circle-jobseekers svg {
+            color: #059669;
+        }
+
+        .icon-circle-hustlers {
+            background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
+        }
+
+        .icon-circle-hustlers svg {
+            color: #7C3AED;
         }
 
         /* Top Reasons Section */
         .reason-card {
-            border-left: 4px solid var(--ca-red);
+            border-left: 4px solid var(--brand-orange);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 0.5rem;
-            background-color: #fff;
+            overflow: hidden;
         }
 
         .reason-card:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .1) !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .15) !important;
             transform: translateX(5px);
         }
 
@@ -162,75 +303,79 @@
             width: 3rem;
             height: 3rem;
             flex-shrink: 0;
-            background-color: var(--ca-red);
+            background: linear-gradient(135deg, var(--brand-orange) 0%, #F97316 100%);
             color: white;
             font-weight: 800;
-            box-shadow: 0 4px 15px rgba(217, 37, 37, 0.3);
-        }
-        
-        /* FOMO Section */
-        .fomo-section {
-            background-color: var(--ca-blue);
-        }
-        .fomo-highlight {
-            color: #87CEFA;
-            font-weight: bold;
-        }
-        .fomo-alert-box {
-            background-color: var(--ca-red);
-            color: var(--ca-text-light);
+            box-shadow: 0 4px 15px rgba(237, 137, 54, 0.3);
         }
 
         /* Registration Section */
-        .bg-registration {
-            background-color: var(--ca-blue-light);
-        }
-        
         .registration-card {
-            border: 2px solid var(--ca-red);
+            border: 2px solid #FDBA74;
             box-shadow: 0 15px 40px rgba(0, 0, 0, .1) !important;
             border-radius: 1rem;
             overflow: hidden;
-            background-color: #fff;
+            position: relative;
+        }
+
+        .registration-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--brand-red), var(--brand-orange), var(--brand-yellow));
         }
 
         .kit-item .check-icon {
-            color: var(--ca-blue);
+            color: #22C55E;
             flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(34, 197, 94, 0.3));
         }
-        
+
         .early-bird-box {
-            background-color: #fdecec;
-            border: 2px solid var(--ca-red);
-            color: #8c1414;
+            background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+            border: 2px solid #FCA5A5;
+            color: #991B1B;
             border-radius: 0.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .early-bird-box::before {
+            content: '🔥';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 2rem;
+            opacity: 0.3;
         }
 
         .early-bird-box h4 {
-            color: #a81a1a;
+            color: #B91C1C;
         }
 
         /* Accordion (FAQ) */
         .accordion-item {
-            border: 1px solid var(--ca-border);
+            border: 1px solid #E5E7EB;
             border-radius: 0.75rem !important;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .accordion-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .accordion-button {
             font-weight: 600;
             transition: all 0.3s ease;
-            color: var(--ca-text-dark);
         }
 
         .accordion-button:not(.collapsed) {
-            color: var(--ca-blue);
-            background-color: var(--ca-blue-light);
+            color: var(--brand-text-dark);
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
             box-shadow: none;
         }
 
@@ -241,141 +386,119 @@
 
         /* Footer */
         footer {
-            background-color: var(--ca-blue);
-        }
-        
-        footer .footer-brand {
-             color: var(--ca-text-light);
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
         }
 
         footer a {
-            color: var(--ca-text-light);
-            text-decoration: underline;
+            color: var(--brand-orange);
+            text-decoration: none;
             transition: color 0.3s ease;
-            text-decoration-color: rgba(255,255,255,0.5);
         }
 
         footer a:hover {
-            color: #a7b7d7;
+            color: #FDBA74;
         }
 
-        /* CTA Buttons */
+        /* Enhanced CTA Buttons */
         .btn-cta-primary {
-            background-color: var(--ca-red);
+            background: linear-gradient(135deg, var(--brand-red) 0%, #DC2626 100%);
             color: white;
-            font-weight: 700;
+            font-weight: 800;
             border-radius: 50px;
-            padding: 0.8rem 1.8rem;
-            transition: all 0.3s ease;
+            padding: 1rem 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
             border: none;
-            box-shadow: 0 8px 25px rgba(217, 37, 37, 0.3);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
         }
-        
+
         .btn-cta-primary:hover {
-            background-color: #B21E1E;
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(217, 37, 37, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(220, 38, 38, 0.6);
         }
 
         .btn-cta-secondary {
-            background-color: var(--ca-blue);
+            background: linear-gradient(135deg, var(--brand-green) 0%, #10B981 100%);
             color: white;
-            font-weight: 700;
+            font-weight: 800;
             border-radius: 50px;
-            padding: 0.8rem 1.8rem;
-            transition: all 0.3s ease;
+            padding: 1rem 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
             border: none;
-            box-shadow: 0 8px 25px rgba(10, 61, 145, 0.3);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .btn-cta-secondary:hover {
-            background-color: #083075;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(10, 61, 145, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(72, 187, 120, 0.6);
         }
 
         /* Social Proof Elements */
         .social-proof {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 0.75rem;
-            padding: 1.5rem 1rem;
+            padding: 1rem;
             margin: 1rem 0;
             border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .social-proof .fw-bold {
-            color: var(--ca-text-light);
         }
 
         .trust-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--ca-text-light);
-            color: var(--ca-blue);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--brand-text-dark);
             padding: 0.5rem 1rem;
             border-radius: 25px;
             font-weight: 600;
             font-size: 0.9rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .trust-badge svg {
-            fill: var(--ca-blue);
-        }
 
         /* Responsive improvements */
         @media (max-width: 768px) {
+
             .btn-hero,
             .btn-cta-primary,
             .btn-cta-secondary {
                 padding: 0.875rem 1.5rem;
                 font-size: 1rem;
             }
+
             .hero-badge {
                 font-size: 0.875rem !important;
                 padding: 0.5rem 1rem !important;
+            }
+
+            .timer-box {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.875rem;
             }
         }
     </style>
 </head>
 
-<body>
+<body class="bg-gradient-body">
 
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-2 sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
-                <span class="me-2"
-                    style="display:inline-block;width:40px;height:40px;background:var(--ca-blue);border-radius:50%;"></span>
-                WOW FMCG
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pin-levels.html">Pin Levels</a></li>
-                    <li class="nav-item"><a class="nav-link" href="join.html">Join as Distributor</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero-section">
+    <section class="bg-gradient-hero">
         <div class="container px-4 py-5">
             <div class="text-center col-lg-9 mx-auto">
                 <span class="badge fs-6 px-4 py-2 mb-4 hero-badge">
                     🔥 LIMITED TIME LAUNCH OFFER - 76% OFF
                 </span>
                 <h1 class="display-4 fw-bold mb-4">
-                    Transform Your Network Into <span class="hero-highlight">Regular Monthly Income!</span>
+                    Transform Your Network Into Your <span style="color: var(--brand-yellow);">Net Worth</span>
                 </h1>
                 <p class="lead mb-5 opacity-90">
                     Join India's fastest-growing FMCG partnership program. Start your entrepreneurial journey with
@@ -383,6 +506,7 @@
                         ₹15,000-₹50,000 monthly!</strong>
                 </p>
 
+                <!-- Enhanced CTA Section -->
                 <div class="d-grid gap-4 d-sm-flex justify-content-sm-center mb-5">
                     <a href="#" class="btn btn-hero fs-5 whatsapp-link">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -394,30 +518,32 @@
                     </a>
                 </div>
 
+                <!-- Social Proof Section -->
                 <div class="social-proof mb-4">
                     <div class="row align-items-center">
-                        <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="col-md-4">
                             <div class="text-center">
-                                <div class="fw-bold fs-4">500+</div>
+                                <div class="fw-bold fs-4" style="color: var(--brand-yellow);">500+</div>
                                 <div class="small opacity-75">Active Partners</div>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="col-md-4">
                             <div class="text-center">
-                                <div class="fw-bold fs-4">₹15K-50K</div>
+                                <div class="fw-bold fs-4" style="color: var(--brand-yellow);">₹15K-50K</div>
                                 <div class="small opacity-75">Monthly Earnings</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="text-center">
-                                <div class="fw-bold fs-4">24/7</div>
+                                <div class="fw-bold fs-4" style="color: var(--brand-yellow);">24/7</div>
                                 <div class="small opacity-75">Support Available</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="d-flex flex-wrap justify-content-center gap-3 gap-sm-4">
+                <!-- Trust Badges -->
+                <div class="d-flex flex-wrap justify-content-center gap-3 gap-sm-4 mb-4">
                     <div class="trust-badge">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="currentColor">
@@ -470,7 +596,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 text-center benefit-card p-3">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-benefit"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -489,7 +615,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 text-center benefit-card p-3">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-benefit"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -505,7 +631,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 text-center benefit-card p-3">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-benefit"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -521,7 +647,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 text-center benefit-card p-3">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-benefit"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -538,7 +664,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 text-center benefit-card p-3">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-benefit"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -554,7 +680,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 text-center benefit-card p-3">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-benefit"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -571,23 +697,24 @@
                 </div>
             </div>
             <div class="text-center">
-                <a href="#" class="btn btn-cta-primary whatsapp-link">
+                <a href="#" class="btn btn-lg rounded-pill text-white fw-bold px-4 py-2 whatsapp-link"
+                    style="background-color: var(--brand-orange);">
                     Start Earning with WOW FMCG
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-5 bg-audience">
+    <section class="py-5 bg-gradient-audience">
         <div class="container px-4">
             <div class="text-center mb-5">
                 <h2 class="display-6 fw-bold text-dark mb-3">This opportunity is perfect for...</h2>
             </div>
             <div class="row g-4 mb-5">
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center p-3 shadow-sm border-0">
+                    <div class="card h-100 text-center p-3 shadow-sm">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-homemakers"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -601,9 +728,9 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center p-3 shadow-sm border-0">
+                    <div class="card h-100 text-center p-3 shadow-sm">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-students"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -620,9 +747,9 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center p-3 shadow-sm border-0">
+                    <div class="card h-100 text-center p-3 shadow-sm">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-jobseekers"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -636,9 +763,9 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 text-center p-3 shadow-sm border-0">
+                    <div class="card h-100 text-center p-3 shadow-sm">
                         <div class="card-body">
-                            <div class="icon-circle"><svg class="icon-lg"
+                            <div class="icon-circle icon-circle-hustlers"><svg class="icon-lg"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -656,27 +783,29 @@
                 <h3 class="h4 fw-bold text-dark mb-4">
                     ✅ No Experience Needed • ✅ Quick ROI • ✅ Flexible Hours
                 </h3>
-                <a href="#" class="btn btn-cta-primary whatsapp-link">
-                    Yes, This is Perfect for Me!
+                <a href="#" class="btn btn-lg rounded-pill text-white fw-bold px-4 py-2 whatsapp-link"
+                    style="background-color: var(--brand-red);">
+                    Yes, This is Perfect for Me!!
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-5 fomo-section text-white">
+    <section class="py-5 bg-gradient-fomo text-white">
         <div class="container px-4">
             <div class="col-lg-9 mx-auto text-center">
                 <h2 class="display-6 fw-bold mb-4">Don't Miss Out: The Amway Success Story, Reimagined</h2>
                 <div class="p-4 mb-4" style="background-color: rgba(255,255,255,0.1); border-radius: 0.5rem;">
                     <p class="fs-5 mb-4 lh-lg">
                         Remember when Amway started in India? The early adopters who joined in the 1990s are now
-                        <span class="fomo-highlight">millionaires</span>. They didn't wait. They saw an opportunity and grabbed it.
+                        <span class="fw-bold" style="color: var(--brand-yellow);">millionaires</span>. They didn't wait.
+                        They didn't overthink. They saw the opportunity and grabbed it.
                     </p>
                     <p class="mb-4">
                         Today, WOW FMCG is offering you the same golden opportunity. We're at the beginning of something
                         BIG in the Indian FMCG market.
                     </p>
-                    <div class="rounded-3 p-4 fomo-alert-box">
+                    <div class="rounded-3 p-4" style="background-color: var(--brand-yellow); color: #9A3412;">
                         <h3 class="h4 fw-bold mb-2">🚨 ALERT: Regret is Expensive</h3>
                         <p>
                             In 6 months, when WOW partners are earning ₹1 lakh+ monthly, don't be the person saying "I
@@ -685,7 +814,7 @@
                     </div>
                 </div>
                 <a href="#" class="btn btn-hero fs-5 whatsapp-link">
-                    Don't Wait - Register Now!
+                    Don't Wait - Register Now!!
                 </a>
             </div>
         </div>
@@ -698,7 +827,7 @@
             </div>
             <div class="col-lg-9 mx-auto">
                 <div class="d-grid gap-4">
-                    <div class="card reason-card shadow-sm">
+                    <div class="card reason-card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-start gap-3">
                                 <div
@@ -712,7 +841,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card reason-card shadow-sm">
+                    <div class="card reason-card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-start gap-3">
                                 <div
@@ -726,7 +855,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card reason-card shadow-sm">
+                    <div class="card reason-card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-start gap-3">
                                 <div
@@ -740,7 +869,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card reason-card shadow-sm">
+                    <div class="card reason-card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-start gap-3">
                                 <div
@@ -754,7 +883,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card reason-card shadow-sm">
+                    <div class="card reason-card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-start gap-3">
                                 <div
@@ -768,7 +897,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card reason-card shadow-sm">
+                    <div class="card reason-card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-start gap-3">
                                 <div
@@ -782,7 +911,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card reason-card shadow-sm">
+                    <div class="card reason-card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-start gap-3">
                                 <div
@@ -798,7 +927,8 @@
                     </div>
                 </div>
                 <div class="text-center mt-5">
-                    <a href="#" class="btn btn-cta-secondary whatsapp-link">
+                    <a href="#" class="btn btn-lg rounded-pill text-white fw-bold px-4 py-2 whatsapp-link"
+                        style="background-color: var(--brand-green);">
                         Claim Your Spot Now
                     </a>
                 </div>
@@ -806,7 +936,7 @@
         </div>
     </section>
 
-    <section class="py-5 bg-registration">
+    <section class="py-5 bg-gradient-registration">
         <div class="container px-4">
             <div class="col-lg-9 mx-auto">
                 <div class="text-center mb-5">
@@ -870,7 +1000,8 @@
                             <p class="small fw-semibold mb-0">Limited to the first 500 participants only.</p>
                         </div>
                         <div class="text-center mt-4">
-                             <a href="#" class="btn btn-cta-primary whatsapp-link">
+                            <a href="#" class="btn btn-lg rounded-pill text-white fw-bold px-4 py-2 whatsapp-link"
+                                style="background-color: var(--brand-red);">
                                 Get Your Early Bird Offer Now!
                             </a>
                         </div>
@@ -982,7 +1113,7 @@
 
     <footer class="py-5">
         <div class="container px-4 text-center">
-            <h3 class="h4 fw-bold mb-2 footer-brand">WOW FMCG</h3>
+            <h3 class="h4 fw-bold mb-2" style="color: var(--brand-orange);">WOW FMCG</h3>
             <p class="text-white-50">Premium Indian Spices • Authentic Flavors • Trusted Quality</p>
             <div class="d-flex flex-wrap justify-content-center gap-3 text-white-50 my-4 small">
                 <span>100% Legal & Compliant</span>
@@ -1039,6 +1170,7 @@
             }, 1000);
 
             // --- WhatsApp Link Handler ---
+            // Replace with your actual WhatsApp number and pre-filled message
             const whatsappNumber = "916266938802";
             const whatsappMessage = "Hello! I'm interested in the WOW Partner Program and would like to register for the Early Bird Offer.";
             const encodedMessage = encodeURIComponent(whatsappMessage);
